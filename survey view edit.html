@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Questionnaire</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background-color: #333;
+            border-radius: 10px;
+        }
+        h2, h3 {
+            color: #ffd700;
+        }
+        label, input, textarea {
+            display: block;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+        .file-input {
+            margin-bottom: 20px;
+        }
+        .submit-button, .load-button {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .instructions {
+            margin-top: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Client Questionnaire</h2>
+        <div class="file-input">
+            <input type="file" id="fileInput">
+        </div>
+
+        <div id="questionnaire-form" style="display: none;">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name">
+
+            <label for="surname">Surname:</label>
+            <input type="text" id="surname" name="surname" placeholder="Enter your surname">
+
+            <label for="email">Email Address:</label>
+            <input type="text" id="email" name="email" placeholder="Enter your email">
+
+            <label for="cellNumber">Cell Number:</label>
+            <input type="text" id="cellNumber" name="cellNumber" placeholder="Enter your cell number">
+
+            <label for="gender">Gender:</label>
+            <input type="text" id="gender" name="gender" placeholder="Enter your gender">
+
+            <label for="age">Age:</label>
+            <input type="text" id="age" name="age" placeholder="Enter your age">
+
+            <label for="height">Height:</label>
+            <input type="text" id="height" name="height" placeholder="Enter your height">
+
+            <label for="weight">Weight:</label>
+            <input type="text" id="weight" name="weight" placeholder="Enter your weight">
+
+            <label for="job">Job/work:</label>
+            <input type="text" id="job" name="job" placeholder="Describe your job">
+
+            <label for="maritalStatus">Marital Status:</label>
+            <input type="text" id="maritalStatus" name="maritalStatus" placeholder="Enter your marital status">
+
+            <label for="children">Children (if any) & Ages:</label>
+            <input type="text" id="children" name="children" placeholder="List your children and their ages">
+
+            <!-- Physical Health -->
+            <h3>Physical Health</h3>
+
+            <label for="dailyActivity">Daily physical activity:</label>
+            <input type="text" id="dailyActivity" name="dailyActivity" placeholder="Describe your daily physical activity">
+
+            <label for="exerciseTypes">Types of exercises (cardio, strength training, flexibility):</label>
+            <input type="text" id="exerciseTypes" name="exerciseTypes" placeholder="List types of exercises you do">
+
+            <label for="exerciseFrequency">Frequency and duration of workouts:</label>
+            <input type="text" id="exerciseFrequency" name="exerciseFrequency" placeholder="How often and how long are your workouts?">
+
+            <label for="sedentaryBehavior">Sedentary behavior:</label>
+            <input type="text" id="sedentaryBehavior" name="sedentaryBehavior" placeholder="Describe your sedentary behavior">
+
+            <label for="dietaryHabits">Dietary habits and preferences:</label>
+            <input type="text" id="dietaryHabits" name="dietaryHabits" placeholder="Describe your dietary habits">
+
+            <label for="macronutrientBalance">Macronutrient balance (proteins, carbs, fats):</label>
+            <input type="text" id="macronutrientBalance" name="macronutrientBalance" placeholder="Describe your macronutrient balance">
+
+            <label for="micronutrientIntake">Micronutrient intake (vitamins, minerals):</label>
+            <input type="text" id="micronutrientIntake" name="micronutrientIntake" placeholder="Describe your micronutrient intake">
+
+            <label for="hydrationLevels">Hydration levels:</label>
+            <input type="text" id="hydrationLevels" name="hydrationLevels" placeholder="Describe your hydration levels">
+
+            <label for="mealTiming">Meal timing and frequency:</label>
+            <input type="text" id="mealTiming" name="mealTiming" placeholder="Describe your meal timing and frequency">
+
+            <label for="specialDiets">Special diets (vegan, keto, gluten-free):</label>
+            <input type="text" id="specialDiets" name="specialDiets" placeholder="Describe any special diets you follow">
+
+            <label for="sleepDuration">Sleep duration and quality:</label>
+            <input type="text" id="sleepDuration" name="sleepDuration" placeholder="Describe your sleep duration and quality">
+
+            <label for="sleepRoutine">Sleep routine and environment:</label>
+            <input type="text" id="sleepRoutine" name="sleepRoutine" placeholder="Describe your sleep routine and environment">
+
+            <label for="sleepDisorders">Sleep disorders (insomnia, sleep apnea):</label>
+            <input type="text" id="sleepDisorders" name="sleepDisorders" placeholder="Do you have any sleep disorders?">
+
+            <label for="nappingHabits">Napping habits:</label>
+            <input type="text" id="nappingHabits" name="nappingHabits" placeholder="Describe your napping habits">
+
+            <label for="chronicConditions">Chronic conditions (diabetes, hypertension, etc.):</label>
+            <input type="text" id="chronicConditions" name="chronicConditions" placeholder="List any chronic conditions you have">
+
+            <label for="surgeries">Past surgeries or injuries:</label>
+            <input type="text" id="surgeries" name="surgeries" placeholder="List any past surgeries or injuries">
+
+            <label for="medications">Current medications and supplements:</label>
+            <input type="text" id="medications" name="medications" placeholder="List any medications and supplements you are currently taking">
+
+            <label for="familyMedicalHistory">Family medical history:</label>
+            <input type="text" id="familyMedicalHistory" name="familyMedicalHistory" placeholder="Describe your family medical history">
+
+            <label for="currentWeight">Weight and BMI:</label>
+            <input type="text" id="currentWeight" name="currentWeight" placeholder="Enter your weight and BMI">
+
+            <!-- Mental and Emotional Health -->
+            <h3>Mental and Emotional Health</h3>
+
+            <label for="stressSources">Sources of stress (work, personal life):</label>
+            <input type="text" id="stressSources" name="stressSources" placeholder="Describe your sources of stress">
+
+            <label for="stressManagement">Stress management techniques:</label>
+            <input type="text" id="stressManagement" name="stressManagement" placeholder="Describe your stress management techniques">
+
+            <label for="relaxationPractices">Relaxation practices (meditation, deep breathing):</label>
+            <input type="text" id="relaxationPractices" name="relaxationPractices" placeholder="List your relaxation practices">
+
+            <label for="moodWellbeing">Mood and emotional well-being:</label>
+            <input type="text" id="moodWellbeing" name="moodWellbeing" placeholder="Describe your mood and emotional well-being">
+
+            <label for="anxietyDepression">Anxiety and depression symptoms:</label>
+            <input type="text" id="anxietyDepression" name="anxietyDepression" placeholder="Describe any anxiety or depression symptoms">
+
+            <label for="mentalHealthSupport">Professional mental health support (therapy, counseling):</label>
+            <input type="text" id="mentalHealthSupport" name="mentalHealthSupport" placeholder="Describe any professional mental health support you receive">
+
+            <label for="cognitiveActivities">Cognitive activities (puzzles, reading):</label>
+            <input type="text" id="cognitiveActivities" name="cognitiveActivities" placeholder="List cognitive activities you engage in">
+
+            <label for="memoryFocus">Memory and focus:</label>
+            <input type="text" id="memoryFocus" name="memoryFocus" placeholder="Describe your memory and focus">
+
+            <label for="screenTime">Impact of screen time:</label>
+            <input type="text" id="screenTime" name="screenTime" placeholder="Describe the impact of screen time">
+
+            <!-- Lifestyle and Habits -->
+            <h3>Lifestyle and Habits</h3>
+
+            <label for="morningRoutine">Morning and evening routines:</label>
+            <input type="text" id="morningRoutine" name="morningRoutine" placeholder="Describe your morning and evening routines">
+
+            <label for="eveningRoutine">Evening Routine:</label>
+            <input type="text" id="eveningRoutine" name="eveningRoutine" placeholder="Describe your evening routine">
+
+            <label for="timeManagement">Time management skills:</label>
+            <input type="text" id="timeManagement" name="timeManagement" placeholder="Describe your time management skills">
+
+            <label for="workLifeBalance">Work-life balance:</label>
+            <input type="text" id="workLifeBalance" name="workLifeBalance" placeholder="Describe your work-life balance">
+
+            <label for="selfCare">Self-Care:</label>
+            <input type="text" id="selfCare" name="selfCare" placeholder="Describe your self-care routine">
+
+            <label for="personalRelationships">Quality of personal relationships:</label>
+            <input type="text" id="personalRelationships" name="personalRelationships" placeholder="Describe the quality of your personal relationships">
+
+            <label for="socialSupport">Social support network:</label>
+            <input type="text" id="socialSupport" name="socialSupport" placeholder="Describe your social support network">
+
+            <label for="communityInvolvement">Community involvement:</label>
+            <input type="text" id="communityInvolvement" name="communityInvolvement" placeholder="Describe your community involvement">
+
+            <label for="livingConditions">Living conditions (cleanliness, safety):</label>
+            <input type="text" id="livingConditions" name="livingConditions" placeholder="Describe your living conditions">
+
+            <label for="workEnvironment">Work environment (ergonomics, stress levels):</label>
+            <input type="text" id="workEnvironment" name="workEnvironment" placeholder="Describe your work environment">
+
+            <label for="natureExposure">Exposure to nature:</label>
+            <input type="text" id="natureExposure" name="natureExposure" placeholder="Describe your exposure to nature">
+
+            <label for="alcoholConsumption">Alcohol consumption:</label>
+            <input type="text" id="alcoholConsumption" name="alcoholConsumption" placeholder="Describe your alcohol consumption">
+
+            <label for="smokingHabits">Smoking habits:</label>
+            <input type="text" id="smokingHabits" name="smokingHabits" placeholder="Describe your smoking habits">
+
+            <label for="recreationalDrugs">Recreational drug use:</label>
+            <input type="text" id="recreationalDrugs" name="recreationalDrugs" placeholder="Describe your recreational drug use">
+
+            <label for="caffeineIntake">Caffeine intake:</label>
+            <input type="text" id="caffeineIntake" name="caffeineIntake" placeholder="Describe your caffeine intake">
+
+            <!-- Spiritual Health -->
+            <h3>Spiritual Health</h3>
+
+            <label for="spiritualPractices">Participation in religious or spiritual practices:</label>
+            <input type="text" id="spiritualPractices" name="spiritualPractices" placeholder="Describe your participation in religious or spiritual practices">
+
+            <!-- Personal Growth -->
+            <h3>Personal Growth</h3>
+
+            <label for="healthGoals">Short-term and long-term health goals:</label>
+            <input type="text" id="healthGoals" name="healthGoals" placeholder="Describe your health goals">
+
+            <label for="personalAspirations">Personal and professional aspirations:</label>
+            <input type="text" id="personalAspirations" name="personalAspirations" placeholder="Describe your personal and professional aspirations">
+
+            <label for="motivationBarriers">Motivation and barriers to achieving goals:</label>
+            <input type="text" id="motivationBarriers" name="motivationBarriers" placeholder="Describe your motivation and barriers to achieving your goals">
+
+            <label for="interestsHobbies">Interests and Hobbies:</label>
+            <input type="text" id="interestsHobbies" name="interestsHobbies" placeholder="Describe your interests and hobbies">
+
+            <label for="lifelongLearning">Interest in lifelong learning:</label>
+            <input type="text" id="lifelongLearning" name="lifelongLearning" placeholder="Describe your interest in lifelong learning">
+
+            <label for="learningActivities">Participation in workshops, courses, or seminars:</label>
+            <input type="text" id="learningActivities" name="learningActivities" placeholder="Describe your participation in learning activities">
+
+            <!-- Special Considerations -->
+            <h3>Special Considerations</h3>
+
+            <label for="lifeTransitions">Pregnancy and postpartum health, menopause and hormonal changes, aging and senior health:</label>
+            <input type="text" id="lifeTransitions" name="lifeTransitions" placeholder="Describe any special life transitions you are experiencing">
+
+            <label for="culturalReligious">Cultural and religious factors (dietary restrictions, health practices and beliefs):</label>
+            <input type="text" id="culturalReligious" name="culturalReligious" placeholder="Describe any cultural and religious factors">
+
+            <label for="financialStress">Impact of financial stress on health:</label>
+            <input type="text" id="financialStress" name="financialStress" placeholder="Describe the impact of financial stress on your health">
+
+            <div class="submit-button">
+                <button onclick="saveFormData()">Save Data</button>
+            </div>
+        </div>
+
+        <div class="instructions">
+            <p>Load a JSON file to populate the form for editing.</p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('fileInput').addEventListener('change', loadFile);
+
+        function loadFile(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const formData = JSON.parse(e.target.result);
+                    populateForm(formData);
+                    document.getElementById('questionnaire-form').style.display = 'block';
+                };
+                reader.readAsText(file);
+            }
+        }
+
+        function populateForm(data) {
+            document.getElementById('name').value = data.name || '';
+            document.getElementById('surname').value = data.surname || '';
+            document.getElementById('email').value = data.email || '';
+            document.getElementById('cellNumber').value = data.cellNumber || '';
+            document.getElementById('gender').value = data.gender || '';
+            document.getElementById('age').value = data.age || '';
+            document.getElementById('height').value = data.height || '';
+            document.getElementById('weight').value = data.weight || '';
+            document.getElementById('job').value = data.job || '';
+            document.getElementById('maritalStatus').value = data.maritalStatus || '';
+            document.getElementById('children').value = data.children || '';
+            document.getElementById('dailyActivity').value = data.dailyActivity || '';
+            document.getElementById('exerciseTypes').value = data.exerciseTypes || '';
+            document.getElementById('exerciseFrequency').value = data.exerciseFrequency || '';
+            document.getElementById('sedentaryBehavior').value = data.sedentaryBehavior || '';
+            document.getElementById('dietaryHabits').value = data.dietaryHabits || '';
+            document.getElementById('macronutrientBalance').value = data.macronutrientBalance || '';
+            document.getElementById('micronutrientIntake').value = data.micronutrientIntake || '';
+            document.getElementById('hydrationLevels').value = data.hydrationLevels || '';
+            document.getElementById('mealTiming').value = data.mealTiming || '';
+            document.getElementById('specialDiets').value = data.specialDiets || '';
+            document.getElementById('sleepDuration').value = data.sleepDuration || '';
+            document.getElementById('sleepRoutine').value = data.sleepRoutine || '';
+            document.getElementById('sleepDisorders').value = data.sleepDisorders || '';
+            document.getElementById('nappingHabits').value = data.nappingHabits || '';
+            document.getElementById('chronicConditions').value = data.chronicConditions || '';
+            document.getElementById('surgeries').value = data.surgeries || '';
+            document.getElementById('medications').value = data.medications || '';
+            document.getElementById('familyMedicalHistory').value = data.familyMedicalHistory || '';
+            document.getElementById('currentWeight').value = data.currentWeight || '';
+            document.getElementById('stressSources').value = data.stressSources || '';
+            document.getElementById('stressManagement').value = data.stressManagement || '';
+            document.getElementById('relaxationPractices').value = data.relaxationPractices || '';
+            document.getElementById('moodWellbeing').value = data.moodWellbeing || '';
+            document.getElementById('anxietyDepression').value = data.anxietyDepression || '';
+            document.getElementById('mentalHealthSupport').value = data.mentalHealthSupport || '';
+            document.getElementById('cognitiveActivities').value = data.cognitiveActivities || '';
+            document.getElementById('memoryFocus').value = data.memoryFocus || '';
+            document.getElementById('screenTime').value = data.screenTime || '';
+            document.getElementById('morningRoutine').value = data.morningRoutine || '';
+            document.getElementById('eveningRoutine').value = data.eveningRoutine || '';
+            document.getElementById('timeManagement').value = data.timeManagement || '';
+            document.getElementById('workLifeBalance').value = data.workLifeBalance || '';
+            document.getElementById('selfCare').value = data.selfCare || '';
+            document.getElementById('personalRelationships').value = data.personalRelationships || '';
+            document.getElementById('socialSupport').value = data.socialSupport || '';
+            document.getElementById('communityInvolvement').value = data.communityInvolvement || '';
+            document.getElementById('livingConditions').value = data.livingConditions || '';
+            document.getElementById('workEnvironment').value = data.workEnvironment || '';
+            document.getElementById('natureExposure').value = data.natureExposure || '';
+            document.getElementById('alcoholConsumption').value = data.alcoholConsumption || '';
+            document.getElementById('smokingHabits').value = data.smokingHabits || '';
+            document.getElementById('recreationalDrugs').value = data.recreationalDrugs || '';
+            document.getElementById('caffeineIntake').value = data.caffeineIntake || '';
+            document.getElementById('spiritualPractices').value = data.spiritualPractices || '';
+            document.getElementById('healthGoals').value = data.healthGoals || '';
+            document.getElementById('personalAspirations').value = data.personalAspirations || '';
+            document.getElementById('motivationBarriers').value = data.motivationBarriers || '';
+            document.getElementById('interestsHobbies').value = data.interestsHobbies || '';
+            document.getElementById('lifelongLearning').value = data.lifelongLearning || '';
+            document.getElementById('learningActivities').value = data.learningActivities || '';
+            document.getElementById('lifeTransitions').value = data.lifeTransitions || '';
+            document.getElementById('culturalReligious').value = data.culturalReligious || '';
+            document.getElementById('financialStress').value = data.financialStress || '';
+        }
+
+        function saveFormData() {
+            const formData = {
+                name: document.getElementById('name').value,
+                surname: document.getElementById('surname').value,
+                email: document.getElementById('email').value,
+                cellNumber: document.getElementById('cellNumber').value,
+                gender: document.getElementById('gender').value,
+                age: document.getElementById('age').value,
+                height: document.getElementById('height').value,
+                weight: document.getElementById('weight').value,
+                job: document.getElementById('job').value,
+                maritalStatus: document.getElementById('maritalStatus').value,
+                children: document.getElementById('children').value,
+                dailyActivity: document.getElementById('dailyActivity').value,
+                exerciseTypes: document.getElementById('exerciseTypes').value,
+                exerciseFrequency: document.getElementById('exerciseFrequency').value,
+                sedentaryBehavior: document.getElementById('sedentaryBehavior').value,
+                dietaryHabits: document.getElementById('dietaryHabits').value,
+                macronutrientBalance: document.getElementById('macronutrientBalance').value,
+                micronutrientIntake: document.getElementById('micronutrientIntake').value,
+                hydrationLevels: document.getElementById('hydrationLevels').value,
+                mealTiming: document.getElementById('mealTiming').value,
+                specialDiets: document.getElementById('specialDiets').value,
+                sleepDuration: document.getElementById('sleepDuration').value,
+                sleepRoutine: document.getElementById('sleepRoutine').value,
+                sleepDisorders: document.getElementById('sleepDisorders').value,
+                nappingHabits: document.getElementById('nappingHabits').value,
+                chronicConditions: document.getElementById('chronicConditions').value,
+                surgeries: document.getElementById('surgeries').value,
+                medications: document.getElementById('medications').value,
+                familyMedicalHistory: document.getElementById('familyMedicalHistory').value,
+                currentWeight: document.getElementById('currentWeight').value,
+                stressSources: document.getElementById('stressSources').value,
+                stressManagement: document.getElementById('stressManagement').value,
+                relaxationPractices: document.getElementById('relaxationPractices').value,
+                moodWellbeing: document.getElementById('moodWellbeing').value,
+                anxietyDepression: document.getElementById('anxietyDepression').value,
+                mentalHealthSupport: document.getElementById('mentalHealthSupport').value,
+                cognitiveActivities: document.getElementById('cognitiveActivities').value,
+                memoryFocus: document.getElementById('memoryFocus').value,
+                screenTime: document.getElementById('screenTime').value,
+                morningRoutine: document.getElementById('morningRoutine').value,
+                eveningRoutine: document.getElementById('eveningRoutine').value,
+                timeManagement: document.getElementById('timeManagement').value,
+                workLifeBalance: document.getElementById('workLifeBalance').value,
+                selfCare: document.getElementById('selfCare').value,
+                personalRelationships: document.getElementById('personalRelationships').value,
+                socialSupport: document.getElementById('socialSupport').value,
+                communityInvolvement: document.getElementById('communityInvolvement').value,
+                livingConditions: document.getElementById('livingConditions').value,
+                workEnvironment: document.getElementById('workEnvironment').value,
+                natureExposure: document.getElementById('natureExposure').value,
+                alcoholConsumption: document.getElementById('alcoholConsumption').value,
+                smokingHabits: document.getElementById('smokingHabits').value,
+                recreationalDrugs: document.getElementById('recreationalDrugs').value,
+                caffeineIntake: document.getElementById('caffeineIntake').value,
+                spiritualPractices: document.getElementById('spiritualPractices').value,
+                healthGoals: document.getElementById('healthGoals').value,
+                personalAspirations: document.getElementById('personalAspirations').value,
+                motivationBarriers: document.getElementById('motivationBarriers').value,
+                interestsHobbies: document.getElementById('interestsHobbies').value,
+                lifelongLearning: document.getElementById('lifelongLearning').value,
+                learningActivities: document.getElementById('learningActivities').value,
+                lifeTransitions: document.getElementById('lifeTransitions').value,
+                culturalReligious: document.getElementById('culturalReligious').value,
+                financialStress: document.getElementById('financialStress').value
+            };
+
+            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(formData, null, 2));
+            const downloadAnchorNode = document.createElement('a');
+            downloadAnchorNode.setAttribute("href", dataStr);
+            downloadAnchorNode.setAttribute("download", "client_data.json");
+            document.body.appendChild(downloadAnchorNode); // required for firefox
+            downloadAnchorNode.click();
+            downloadAnchorNode.remove();
+        }
+    </script>
+</body>
+</html>
