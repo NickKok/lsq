@@ -43,12 +43,34 @@
             padding: 10px 20px;
             font-size: 16px;
             cursor: pointer;
+            margin-right: 10px;
+        }
+        input[type="file"] {
+            display: none;
+        }
+        .browse-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .file-label {
+            margin-bottom: 10px;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h2>Edit Form Data</h2>
+        <div class="file-label">
+            <label for="fileInput">Upload JSON File:</label>
+            <input type="file" id="fileInput" accept=".json">
+            <button class="browse-button" onclick="document.getElementById('fileInput').click()">Browse</button>
+        </div>
         <form id="editForm">
             <!-- Form fields will be populated dynamically here -->
             <div class="button-container">
@@ -58,20 +80,23 @@
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Retrieve stored form data from local storage
-            const storedFormData = localStorage.getItem('formData');
+        document.getElementById('fileInput').addEventListener('change', handleFileSelect);
 
-            if (storedFormData) {
-                const formData = JSON.parse(storedFormData);
+        function handleFileSelect(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                const formData = JSON.parse(event.target.result);
                 populateForm(formData);
-            } else {
-                alert('No form data found. Please upload a JSON file to edit.');
-            }
-        });
+            };
+            reader.readAsText(file);
+        }
 
         function populateForm(formData) {
             const editForm = document.getElementById('editForm');
+            editForm.innerHTML = ''; // Clear previous form fields
 
             // Dynamically create form fields based on formData
             Object.keys(formData).forEach(key => {
