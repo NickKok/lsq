@@ -76,14 +76,15 @@
         </div>
         <form id="editForm">
             <!-- Form fields will be populated dynamically here -->
-            <div class="button-container">
-                <button type="button" id="saveEditedForm">Save Edited Form</button>
-            </div>
         </form>
+        <div class="button-container">
+            <button type="button" id="saveEditedForm" class="browse-button">Save Edited Form</button>
+        </div>
     </div>
 
     <script>
         document.getElementById('fileInput').addEventListener('change', handleFileSelect);
+        document.getElementById('saveEditedForm').addEventListener('click', saveEditedFormData);
 
         function handleFileSelect(event) {
             const file = event.target.files[0];
@@ -113,16 +114,6 @@
                 editForm.appendChild(label);
                 editForm.appendChild(input);
             });
-
-            // Add Save button
-            const saveButton = document.createElement('button');
-            saveButton.textContent = 'Save Edited Form';
-            saveButton.type = 'button';
-            saveButton.id = 'saveEditedForm';
-            saveButton.className = 'browse-button';
-            saveButton.style.marginTop = '20px';
-            saveButton.addEventListener('click', saveEditedFormData);
-            editForm.appendChild(saveButton);
         }
 
         function saveEditedFormData() {
