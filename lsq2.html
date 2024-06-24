@@ -255,16 +255,19 @@
                 referenceNumber: referenceNumber // Include reference number in formData
             };
 
-            // Create JSON blob
+           // Create JSON blob
             const blob = new Blob([JSON.stringify(formData, null, 2)], { type: 'application/json' });
             const url = URL.createObjectURL(blob);
 
-            // Create download link with concatenated file name
-            const downloadFileName = `questionnaire_${referenceNumber}.json`;
+            // Generate file name with reference number
+            const fileName = `questionnaire_${referenceNumber}.json`;
+
+            // Create download link
             const a = document.createElement('a');
             a.href = url;
-            a.download = downloadFileName;
+            a.download = fileName; // Set the download attribute to the generated file name
             a.click();
+
             URL.revokeObjectURL(url);
 
             // Display reference number and email instructions
