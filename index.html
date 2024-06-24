@@ -62,10 +62,10 @@
                 if (Array.isArray(data)) {
                     const fileList = document.getElementById('file-list');
                     data.forEach(file => {
-                        if (file.type === 'file') {
+                        if (file.type === 'file' && file.name !== 'index.html') {
                             const listItem = document.createElement('li');
                             const link = document.createElement('a');
-                            link.href = file.html_url;
+                            link.href = `https://raw.githubusercontent.com/${repoOwner}/${repoName}/main/${file.name}`;
                             link.target = '_blank';
                             link.textContent = file.name;
                             listItem.appendChild(link);
