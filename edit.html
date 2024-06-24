@@ -23,7 +23,7 @@
             margin-bottom: 10px;
             font-weight: bold;
         }
-        input[type="text"], textarea {
+        input[type="text"] {
             width: 100%;
             padding: 10px;
             font-size: 16px;
@@ -43,6 +43,10 @@
             font-size: 16px;
             cursor: pointer;
             margin-right: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
         }
         input[type="file"] {
             display: none;
@@ -109,9 +113,19 @@
                 editForm.appendChild(label);
                 editForm.appendChild(input);
             });
+
+            // Add Save button
+            const saveButton = document.createElement('button');
+            saveButton.textContent = 'Save Edited Form';
+            saveButton.type = 'button';
+            saveButton.id = 'saveEditedForm';
+            saveButton.className = 'browse-button';
+            saveButton.style.marginTop = '20px';
+            saveButton.addEventListener('click', saveEditedFormData);
+            editForm.appendChild(saveButton);
         }
 
-        document.getElementById('saveEditedForm').addEventListener('click', function() {
+        function saveEditedFormData() {
             const editedFormData = {};
             const formElements = document.getElementById('editForm').elements;
 
@@ -135,7 +149,7 @@
             URL.revokeObjectURL(url);
 
             alert('Edited form data saved as edited_questionnaire.json');
-        });
+        }
     </script>
 </body>
 </html>
