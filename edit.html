@@ -23,9 +23,8 @@
             margin-bottom: 10px;
             font-weight: bold;
         }
-        textarea {
+        input[type="text"], textarea {
             width: 100%;
-            height: 150px;
             padding: 10px;
             font-size: 16px;
             border: 1px solid #ccc;
@@ -102,10 +101,11 @@
             Object.keys(formData).forEach(key => {
                 const label = document.createElement('label');
                 label.textContent = key;
-                const input = document.createElement('textarea');
+                const input = document.createElement('input');
+                input.type = 'text';
                 input.name = key;
                 input.value = formData[key];
-                input.className = 'form-textarea'; // Add a class for consistent styling
+                input.className = 'form-input'; // Add a class for consistent styling
                 editForm.appendChild(label);
                 editForm.appendChild(input);
             });
@@ -117,7 +117,7 @@
 
             // Collect edited form data
             for (let i = 0; i < formElements.length; i++) {
-                if (formElements[i].tagName === 'TEXTAREA') {
+                if (formElements[i].tagName === 'INPUT' && formElements[i].type === 'text') {
                     editedFormData[formElements[i].name] = formElements[i].value;
                 }
             }
