@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Health & Wellness Questionnaire V3</title>
+    <title>Health & Wellness Questionnaire</title>
     <style>
         body {
             background-color: black;
@@ -22,8 +22,7 @@
             display: block;
             margin-bottom: 10px;
         }
-        input[type="text"],
-        textarea {
+        input[type="text"] {
             width: 100%;
             padding: 10px;
             font-size: 16px;
@@ -46,6 +45,29 @@
 <body>
     <div class="container">
         <h2>Health & Wellness Questionnaire</h2>
+        
+        <h3>Personal Information</h3>
+        
+        <label for="gender">Gender:</label>
+        <input type="text" id="gender" name="gender" placeholder="Enter your gender">
+
+        <label for="age">Age:</label>
+        <input type="text" id="age" name="age" placeholder="Enter your age">
+
+        <label for="height">Height:</label>
+        <input type="text" id="height" name="height" placeholder="Enter your height">
+
+        <label for="weight">Weight:</label>
+        <input type="text" id="weight" name="weight" placeholder="Enter your weight">
+
+        <label for="job">Job/work:</label>
+        <input type="text" id="job" name="job" placeholder="Enter your job/work">
+
+        <label for="maritalStatus">Marital Status:</label>
+        <input type="text" id="maritalStatus" name="maritalStatus" placeholder="Enter your marital status">
+
+        <label for="children">Children (if any) & Ages:</label>
+        <input type="text" id="children" name="children" placeholder="Enter your children and their ages">
 
         <!-- Physical Health -->
         <h3>Physical Health</h3>
@@ -174,39 +196,103 @@
         <h3>Social Connections</h3>
 
         <label for="personalRelationships">Quality of personal relationships:</label>
-        <input type="text" id="personalRelationships" name="personalRelationships" placeholder="How would you describe your personal relationships">
+        <input type="text" id="personalRelationships" name="personalRelationships" placeholder="Satisfaction with personal relationships">
 
         <label for="socialSupport">Social support network:</label>
         <input type="text" id="socialSupport" name="socialSupport" placeholder="Describe your social support network">
 
         <label for="communityInvolvement">Community involvement:</label>
-        <input type="text" id="communityInvolvement" name="communityInvolvement" placeholder="How involved are you in your community">
+        <input type="text" id="communityInvolvement" name="communityInvolvement" placeholder="Are you involved in any community activities?">
 
-        <!-- Additional Comments -->
-        <h3>Additional Comments</h3>
+        <!-- Environment -->
+        <h3>Environment</h3>
 
-        <label for="additionalComments">Additional comments:</label>
-        <textarea id="additionalComments" name="additionalComments" rows="4" placeholder="Any additional comments"></textarea>
+        <label for="livingConditions">Living conditions (cleanliness, safety):</label>
+        <input type="text" id="livingConditions" name="livingConditions" placeholder="Describe your living conditions">
 
+        <label for="workEnvironment">Work environment (ergonomics, stress levels):</label>
+        <input type="text" id="workEnvironment" name="workEnvironment" placeholder="Describe your work environment">
+
+        <label for="natureExposure">Exposure to nature:</label>
+        <input type="text" id="natureExposure" name="natureExposure" placeholder="How often are you exposed to natural environments">
+
+        <!-- Substance Use -->
+        <h3>Substance Use</h3>
+
+        <label for="alcoholConsumption">Alcohol consumption:</label>
+        <input type="text" id="alcoholConsumption" name="alcoholConsumption" placeholder="Weekly alcohol consumption">
+
+        <label for="smokingHabits">Smoking habits:</label>
+        <input type="text" id="smokingHabits" name="smokingHabits" placeholder="Do you smoke? How much?">
+
+        <label for="recreationalDrugs">Recreational drug use:</label>
+        <input type="text" id="recreationalDrugs" name="recreationalDrugs" placeholder="Do you use recreational drugs?">
+
+        <label for="caffeineIntake">Caffeine intake:</label>
+        <input type="text" id="caffeineIntake" name="caffeineIntake" placeholder="Daily caffeine intake">
+
+        <!-- Spiritual Health -->
+        <h3>Spiritual Health</h3>
+
+        <label for="spiritualPractices">Participation in religious or spiritual practices:</label>
+        <input type="text" id="spiritualPractices" name="spiritualPractices" placeholder="Describe your religious or spiritual practices">
+
+        <!-- Personal Growth -->
+        <h3>Personal Growth</h3>
+
+        <label for="healthGoals">Short-term and long-term health goals:</label>
+        <input type="text" id="healthGoals" name="healthGoals" placeholder="Describe your health goals">
+
+        <label for="personalAspirations">Personal and professional aspirations:</label>
+        <input type="text" id="personalAspirations" name="personalAspirations" placeholder="Describe your personal and professional aspirations">
+
+        <label for="motivationBarriers">Motivation and barriers to achieving goals:</label>
+        <input type="text" id="motivationBarriers" name="motivationBarriers" placeholder="What motivates you? What are your barriers?">
+
+        <label for="interestsHobbies">Interests and Hobbies:</label>
+        <input type="text" id="interestsHobbies" name="interestsHobbies" placeholder="List your interests and hobbies">
+
+        <!-- Education and Learning -->
+        <h3>Education and Learning</h3>
+
+        <label for="lifelongLearning">Interest in lifelong learning:</label>
+        <input type="text" id="lifelongLearning" name="lifelongLearning" placeholder="Are you interested in lifelong learning?">
+
+        <label for="learningActivities">Participation in workshops, courses, or seminars:</label>
+        <input type="text" id="learningActivities" name="learningActivities" placeholder="Describe any recent workshops or courses attended">
+
+        <!-- Special Considerations -->
+        <h3>Special Considerations</h3>
+
+        <label for="lifeTransitions">Life Transitions:</label>
+        <input type="text" id="lifeTransitions" name="lifeTransitions" placeholder="Describe any relevant life transitions (pregnancy, menopause, aging)">
+
+        <label for="culturalReligious">Cultural and Religious Factors:</label>
+        <input type="text" id="culturalReligious" name="culturalReligious" placeholder="Any cultural or religious factors affecting health?">
+
+        <label for="financialStress">Financial Health:</label>
+        <input type="text" id="financialStress" name="financialStress" placeholder="How does financial stress impact your health?">
+
+        <!-- Submit Button -->
         <div class="submit-button">
-            <button onclick="saveFormData()">Submit</button>
-            <button type="reset">Reset</button>
+            <button type="button" onclick="saveFormData()">Save</button>
         </div>
-
-        <p class="instructions">Thank you for completing the questionnaire!</p>
+        <div class="instructions">
+            <p>Once saved, please email the file to <a href="mailto:somalution@gmail.com">somalution@gmail.com</a></p>
+        </div>
     </div>
 
     <script>
         function saveFormData() {
-            // Generate a unique 6-digit reference number
-            var referenceNumber = generateReferenceNumber();
-
-            // Embed the reference number into the form
-            document.getElementById('referenceNumber').innerText = referenceNumber;
-
-            // Create an object with form data
-            var formData = {
-                referenceNumber: referenceNumber,
+            const formData = {
+                
+                gender: document.getElementById('gender').value,
+                age: document.getElementById('age').value,
+                height: document.getElementById('height').value,
+                weight: document.getElementById('weight').value,
+                job: document.getElementById('job').value,
+                maritalStatus: document.getElementById('maritalStatus').value,
+                children: document.getElementById('children').value,
                 dailyActivity: document.getElementById('dailyActivity').value,
                 exerciseTypes: document.getElementById('exerciseTypes').value,
                 exerciseFrequency: document.getElementById('exerciseFrequency').value,
@@ -243,38 +329,34 @@
                 personalRelationships: document.getElementById('personalRelationships').value,
                 socialSupport: document.getElementById('socialSupport').value,
                 communityInvolvement: document.getElementById('communityInvolvement').value,
-                additionalComments: document.getElementById('additionalComments').value
+                livingConditions: document.getElementById('livingConditions').value,
+                workEnvironment: document.getElementById('workEnvironment').value,
+                natureExposure: document.getElementById('natureExposure').value,
+                alcoholConsumption: document.getElementById('alcoholConsumption').value,
+                smokingHabits: document.getElementById('smokingHabits').value,
+                recreationalDrugs: document.getElementById('recreationalDrugs').value,
+                caffeineIntake: document.getElementById('caffeineIntake').value,
+                spiritualPractices: document.getElementById('spiritualPractices').value,
+                healthGoals: document.getElementById('healthGoals').value,
+                personalAspirations: document.getElementById('personalAspirations').value,
+                motivationBarriers: document.getElementById('motivationBarriers').value,
+                interestsHobbies: document.getElementById('interestsHobbies').value,
+                lifelongLearning: document.getElementById('lifelongLearning').value,
+                learningActivities: document.getElementById('learningActivities').value,
+                lifeTransitions: document.getElementById('lifeTransitions').value,
+                culturalReligious: document.getElementById('culturalReligious').value,
+                financialStress: document.getElementById('financialStress').value,
             };
 
-            // Convert the object to JSON string
-            var formDataJson = JSON.stringify(formData);
-
-            // Prompt user to save the form data locally
-            saveLocally(formDataJson, referenceNumber);
-        }
-
-        function generateReferenceNumber() {
-            // Generate a random 6-digit number
-            var randomNumber = Math.floor(100000 + Math.random() * 900000);
-            return randomNumber.toString(); // Convert to string to ensure it's always 6 digits
-        }
-
-        function saveLocally(formDataJson, referenceNumber) {
-            // Create a Blob containing the data
-            var blob = new Blob([formDataJson], { type: 'application/json' });
-
-            // Create a link element to trigger the download
-            var a = document.createElement('a');
-            a.style.display = 'none';
-            a.href = URL.createObjectURL(blob);
-            a.download = 'lsq_' + referenceNumber + '.json';
-            
-            // Append the link to the body and click it
-            document.body.appendChild(a);
+            const blob = new Blob([JSON.stringify(formData, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'questionnaire.json';
             a.click();
+            URL.revokeObjectURL(url);
 
-            // Clean up
-            document.body.removeChild(a);
+            alert('Form data saved. Please email the file to somalution@gmail.com.');
         }
     </script>
 </body>
