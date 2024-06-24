@@ -259,10 +259,11 @@
             const blob = new Blob([JSON.stringify(formData, null, 2)], { type: 'application/json' });
             const url = URL.createObjectURL(blob);
 
-            // Create download link
+            // Create download link with concatenated file name
+            const downloadFileName = `questionnaire_${referenceNumber}.json`;
             const a = document.createElement('a');
             a.href = url;
-            a.download = 'questionnaire.json';
+            a.download = downloadFileName;
             a.click();
             URL.revokeObjectURL(url);
 
