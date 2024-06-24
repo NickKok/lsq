@@ -1,9 +1,9 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Somalution Health &  Lifestyle Questionnaire</title>
+    <title>Client Lifestyle Questionnaire</title>
     <style>
         body {
             background-color: black;
@@ -25,17 +25,62 @@
             font-size: 1.2em;
             margin-top: 0.5em;
         }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 0.5em 0;
+        }
+        a {
+            color: #00f;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
     <div>
-        <h1>Somalution Health & Lifestyle Questionnaire</h1>
-        <p>Select Option</p>
-             <div class="links">
-            <a href="lsq2.html">Client Lifestyle Questionnaire  </a>
-            <a href="survey view edit.html">View & Edit Questionnaires  </a>
-            <a href="gpt analysis of survey.html">GPT Questionnaire Analysis  </a>
-            </div>
+        <h1>Welcome to the Client Lifestyle Questionnaire page</h1>
+        <p>Click on one of the files below to open.</p>
+        <ul id="file-list">
+            <!-- File links will be dynamically generated here -->
+        </ul>
     </div>
+    <script>
+        async function fetchRepoFiles() {
+            const repoOwner = 'NickKok'; // Replace with your GitHub username
+            const repoName = 'lsq'; // Replace with your repository name
+            const apiUrl = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/`;
+
+            try {
+                const response = await fetch(apiUrl);
+                const data = await response.json();
+
+                if (Array.isArray(data)) {
+                    const fileList = document.getElementById('file-list');
+                    data.forEach(file => {
+                        if (file.type === 'file') {
+                            const listItem = document.createElement('li');
+                            const link = document.createElement('a');
+                            link.href = file.html_url;
+                            link.target = '_blank';
+                            link.textContent = file.name;
+                            listItem.appendChild(link);
+                            fileList.appendChild(listItem);
+                        }
+                    });
+                } else {
+                    console.error('Invalid response format:', data);
+                }
+            } catch (error) {
+                console.error('Error fetching repository files:', error);
+            }
+        }
+
+        fetchRepoFiles();
+    </script>
 </body>
 </html>
