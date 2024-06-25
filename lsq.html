@@ -246,35 +246,34 @@
 
             <script>
 function saveFormData() {
-    // Get all form data
-    var formData = new FormData();
+    // Initialize an empty object to store form data
+    var formData = {};
+
+    // Select all text input fields
     var inputs = document.querySelectorAll('input[type="text"]');
+    
+    // Loop through each input field
     inputs.forEach(function(input) {
-        formData.append(input.name, input.value);
+        // Add input id as key and input value as value to formData object
+        formData[input.id] = input.value;
     });
 
-    // Convert FormData to JSON
-    var object = {};
-    formData.forEach(function(value, key){
-        object[key] = value;
-    });
-    var jsonData = JSON.stringify(object, null, 2);
-    
-    // Create a Blob of the data
+    // Convert the formData object to JSON string
+    var jsonData = JSON.stringify(formData, null, 2);
+
+    // Create a Blob object for the JSON data
     var blob = new Blob([jsonData], { type: 'application/json' });
 
-    // Create a link element to trigger download
+    // Create a temporary link element to trigger the download
     var a = document.createElement('a');
     a.href = URL.createObjectURL(blob);
     a.download = 'health_questionnaire.json';
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
-
-    // Confirmation message
-    alert('Form data saved successfully! Please email the saved file to somalution@gmail.com.');
 }
 </script>
+
 
  </body>
 </html>
