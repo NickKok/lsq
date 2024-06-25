@@ -273,6 +273,9 @@
         <label for="financialStress">Financial Health:</label>
         <input type="text" id="financialStress" name="financialStress" placeholder="How does financial stress impact your health?">
 
+        <label for="anythingElse">Anything Else?</label>
+        <input type="textarea" id="anythingElse" name="anythingElse" placeholder="Is there anything else about your health, diet, body, mind, environment, life or soul not yet mentioned?">
+
         <!-- Submit Button -->
         <div class="submit-button">
             <button type="button" onclick="saveFormData()">Save</button>
@@ -346,6 +349,7 @@
                 lifeTransitions: document.getElementById('lifeTransitions').value,
                 culturalReligious: document.getElementById('culturalReligious').value,
                 financialStress: document.getElementById('financialStress').value,
+                anythingElse: document.getElementById('anythingElse').value,
             };
 
             const blob = new Blob([JSON.stringify(formData, null, 2)], { type: 'application/json' });
