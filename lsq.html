@@ -235,10 +235,17 @@
         
         <label for="anythingElse"></label> <!--Anything Else?-->
         <input type="text" id="anythingElse" name="anythingElse" placeholder="Is there anything else about your health, diet, body, mind, environment, life or soul not yet mentioned?">
-        <!-- Submit Button -->
+        
+        
+        <!-- Buttons -->
         <div class="submit-button">
             <button type="button" onclick="saveFormData()">Save</button>
         </div>
+         <div class="load-button">
+            <input type="file" id="fileInput" accept=".json">
+            <button type="button" onclick="loadFormData()">Load Form Data</button>
+        </div>
+
         <div class="instructions2">
             <p><center>Once saved, please email the file to <a href="mailto:somalution@gmail.com">somalution@gmail.com</a></center></p>
         </div>
@@ -272,8 +279,42 @@ function saveFormData() {
     a.click();
     document.body.removeChild(a);
 }
+
+function loadFormData() {
+    var input = document.getElementById('fileInput');
+    var file = input.files[0];
+
+    if (!file) {
+        alert('Please select a file.');
+        return;
+    }
+
+    var reader = new FileReader();
+
+    reader.onload = function(event) {
+        var jsonData = event.target.result;
+        try {
+            var formData = JSON.parse(jsonData);
+
+            // Populate the form fields
+            for (var key in formData) {
+                if (formData.hasOwnProperty(key)) {
+                    var element = document.getElementById(key);
+                    if (element) {
+                        element.value = formData[key];
+                    }
+                }
+            }
+
+            alert('Form data loaded successfully!');
+        } catch (e) {
+            alert('Error parsing JSON file.');
+            console.error('Error parsing JSON file', e);
+        }
+    };
+
+    reader.readAsText(file);
+}
 </script>
-
-
  </body>
 </html>
