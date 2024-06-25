@@ -243,5 +243,38 @@
             <p><center>Once saved, please email the file to <a href="mailto:somalution@gmail.com">somalution@gmail.com</a></center></p>
         </div>
     </div>
+
+            <script>
+function saveFormData() {
+    // Get all form data
+    var formData = new FormData();
+    var inputs = document.querySelectorAll('input[type="text"]');
+    inputs.forEach(function(input) {
+        formData.append(input.name, input.value);
+    });
+
+    // Convert FormData to JSON
+    var object = {};
+    formData.forEach(function(value, key){
+        object[key] = value;
+    });
+    var jsonData = JSON.stringify(object, null, 2);
+    
+    // Create a Blob of the data
+    var blob = new Blob([jsonData], { type: 'application/json' });
+
+    // Create a link element to trigger download
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'health_questionnaire.json';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+
+    // Confirmation message
+    alert('Form data saved successfully! Please email the saved file to somalution@gmail.com.');
+}
+</script>
+
  </body>
 </html>
