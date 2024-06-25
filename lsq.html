@@ -65,26 +65,20 @@
         
         <h3>Personal Information</h3>
         
+        <label for="ethnic">Race/ethnicity:</label>
+        <input type="text" id="etchnic" name="ethnic" placeholder="Enter your race and ethnicity">
+
         <label for="gender">Gender:</label>
         <input type="text" id="gender" name="gender" placeholder="Enter your gender">
 
-        <label for="age">Age:</label>
-        <input type="text" id="age" name="age" placeholder="Enter your age">
-
-        <label for="height">Height:</label>
-        <input type="text" id="height" name="height" placeholder="Enter your height">
-
-        <label for="weight">Weight:</label>
-        <input type="text" id="weight" name="weight" placeholder="Enter your weight">
-
         <label for="job">Job/work:</label>
-        <input type="text" id="job" name="job" placeholder="Enter your job/work">
+        <input type="text" id="job" name="job" placeholder="Enter your job or jobs, work or vocation">
 
         <label for="maritalStatus">Marital Status:</label>
         <input type="text" id="maritalStatus" name="maritalStatus" placeholder="Enter your marital status">
 
         <label for="children">Children (if any) & Ages:</label>
-        <input type="text" id="children" name="children" placeholder="Enter your children and their ages">
+        <input type="text" id="children" name="children" placeholder="Enter your children's gender and their respective ages">
 
         <!-- Physical Health -->
         <h3>Physical Health</h3>
@@ -96,7 +90,7 @@
         <input type="text" id="exerciseTypes" name="exerciseTypes" placeholder="Specify types of exercises you do">
 
         <label for="exerciseFrequency">Frequency and duration of workouts:</label>
-        <input type="text" id="exerciseFrequency" name="exerciseFrequency" placeholder="How often and how long you exercise">
+        <input type="text" id="exerciseFrequency" name="exerciseFrequency" placeholder="How often and how long you exercise?">
 
         <label for="sedentaryBehavior">Sedentary behavior:</label>
         <input type="text" id="sedentaryBehavior" name="sedentaryBehavior" placeholder="How much time spent sedentary">
@@ -135,7 +129,7 @@
         <input type="text" id="sleepDisorders" name="sleepDisorders" placeholder="Do you have any sleep disorders">
 
         <label for="nappingHabits">Napping habits:</label>
-        <input type="text" id="nappingHabits" name="nappingHabits" placeholder="How often do you nap">
+        <input type="text" id="nappingHabits" name="nappingHabits" placeholder="How often do you nap outside of normal sleep times">
 
         <!-- Medical History -->
         <h3>Medical History</h3>
@@ -144,7 +138,7 @@
         <input type="text" id="chronicConditions" name="chronicConditions" placeholder="List chronic conditions">
 
         <label for="surgeries">Past surgeries or injuries:</label>
-        <input type="text" id="surgeries" name="surgeries" placeholder="Describe past surgeries or injuries">
+        <input type="text" id="surgeries" name="surgeries" placeholder="Describe past surgeries or major injuries">
 
         <label for="medications">Current medications and supplements:</label>
         <input type="text" id="medications" name="medications" placeholder="List current medications and supplements">
@@ -155,8 +149,18 @@
         <!-- Body Composition -->
         <h3>Body Composition</h3>
 
-        <label for="currentWeight">Weight and BMI:</label>
-        <input type="text" id="currentWeight" name="currentWeight" placeholder="Current weight and approximate BMI">
+        <label for="age">Age:</label>
+        <input type="text" id="age" name="age" placeholder="Enter your age">
+
+        <label for="height">Height:</label>
+        <input type="text" id="height" name="height" placeholder="Enter your height">
+
+        <label for="weight">Weight:</label>
+        <input type="text" id="weight" name="weight" placeholder="Enter your weight">
+
+        <label for="bfp">Body Fat Percentage:</label>
+        <input type="text" id="bfp" name="bfp" placeholder="Enter your Body Fat Percentage (not BMI)">
+
 
         <!-- Mental and Emotional Health -->
         <h3>Mental and Emotional Health</h3>
@@ -310,9 +314,7 @@
             const formData = {
                 
                 gender: document.getElementById('gender').value,
-                age: document.getElementById('age').value,
-                height: document.getElementById('height').value,
-                weight: document.getElementById('weight').value,
+                ethnic: document.getElementById('ethnic').value,
                 job: document.getElementById('job').value,
                 maritalStatus: document.getElementById('maritalStatus').value,
                 children: document.getElementById('children').value,
@@ -334,7 +336,9 @@
                 surgeries: document.getElementById('surgeries').value,
                 medications: document.getElementById('medications').value,
                 familyMedicalHistory: document.getElementById('familyMedicalHistory').value,
-                currentWeight: document.getElementById('currentWeight').value,
+                age: document.getElementById('age').value,
+                height: document.getElementById('height').value,
+                weight: document.getElementById('weight').value,
                 stressSources: document.getElementById('stressSources').value,
                 stressManagement: document.getElementById('stressManagement').value,
                 relaxationPractices: document.getElementById('relaxationPractices').value,
