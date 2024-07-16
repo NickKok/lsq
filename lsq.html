@@ -89,8 +89,12 @@
         <input type="text" id="exerciseFrequency" name="exerciseFrequency" placeholder="How often and how long you exercise?">
         <label for="sedentaryBehavior">Sedentary behavior:</label>
         <input type="text" id="sedentaryBehavior" name="sedentaryBehavior" placeholder="How much time spent sedentary">
-        <label for="overallActivity">Overall Activity Levels (Compared to recent years): Scale of 1 to 10 </label>
+        <label for="overallActivity">Overall ACTIVITY Levels (Compared to recent years): Scale of 1 to 10 </label>
         <input type="text" id="overallActivity" name="overallActivity" placeholder="5 = same as recent years, less = worse and more than 5 = better.">
+        <label for="overallHealth">Overall Physical HEALTH Levels (Compared to recent years): Scale of 1 to 10 </label>
+        <input type="text" id="overallHealth" name="overallHealth" placeholder="5 = same as recent years, less = worse and more than 5 = better.">
+        <label for="overallHealthT">Overall Physical HEALTH: Scale of 1 to 10 </label>
+        <input type="text" id="overallHealthT" name="overallHealthT" placeholder="How satisfied are you with your overall health right now?">
          
         <!-- Nutrition -->
         <h3>Nutrition</h3>
@@ -106,6 +110,8 @@
         <input type="text" id="mealTiming" name="mealTiming" placeholder="Describe your meal timing and frequency">
         <label for="specialDiets">Special diets (vegan, keto, gluten-free):</label>
         <input type="text" id="specialDiets" name="specialDiets" placeholder="Any special diets or restrictions">
+        <label for="overallNutr">Overall Nutrition: Scale of 1 to 10 </label>
+        <input type="text" id="overallNutr" name="overallNutr" placeholder="How satisfied are you with your overall nutrition right now?">
          
         <!-- Sleep -->
         <h3>Sleep</h3>
@@ -117,6 +123,8 @@
         <input type="text" id="sleepDisorders" name="sleepDisorders" placeholder="Do you have any sleep disorders">
         <label for="nappingHabits">Napping habits:</label>
         <input type="text" id="nappingHabits" name="nappingHabits" placeholder="How often do you nap outside of normal sleep times">
+        <label for="overallSleep">Overall Sleep: Scale of 1 to 10 </label>
+        <input type="text" id="overallSleep" name="overallSleep" placeholder="How satisfied are you with your overall sleep quality right now?">
          
         <!-- Medical History -->
         <h3>Medical History</h3>
@@ -142,7 +150,7 @@
         <label for="weight">Weight:</label>
         <input type="text" id="weight" name="weight" placeholder="Enter your weight">
         <label for="bfp">Body Fat Percentage:</label>
-        <input type="text" id="bfp" name="bfp" placeholder="Enter your Body Fat Percentage (not BMI)">
+        <input type="text" id="bfp" name="bfp" placeholder="Enter your Body Fat Percentage (not BMI) If known, or leave blank.">
         
         <!-- Mental and Emotional Health -->
         <h3>Mental and Emotional Health</h3>
@@ -158,6 +166,8 @@
         <input type="text" id="anxietyDepression" name="anxietyDepression" placeholder="Symptoms of anxiety or depression">
         <label for="mentalHealthSupport">Professional mental health support (therapy, counseling):</label>
         <input type="text" id="mentalHealthSupport" name="mentalHealthSupport" placeholder="Are you seeing a therapist or counselor?">
+        <label for="overallMent">Overall Mental Health: Scale of 1 to 10 </label>
+        <input type="text" id="overallMent" name="overallMent" placeholder="How satisfied are you with your overall mental health right now?">
         
         <!-- Cognitive Health -->
         <h3>Cognitive Health</h3>
@@ -167,6 +177,8 @@
         <input type="text" id="memoryFocus" name="memoryFocus" placeholder="Describe your memory and focus">
         <label for="screenTime">Impact of screen time:</label>
         <input type="text" id="screenTime" name="screenTime" placeholder="Daily screen time">
+        <label for="overallCogn">Overall Cognitive Development: Scale of 1 to 10 </label>
+        <input type="text" id="overallCogn" name="overallCogn" placeholder="How satisfied are you with your overall cognitive development right now?">
          
         <!-- Lifestyle and Habits -->
         <h3>Lifestyle and Habits</h3>
@@ -189,6 +201,8 @@
         <input type="text" id="socialSupport" name="socialSupport" placeholder="Describe your social support network">
         <label for="communityInvolvement">Community involvement:</label>
         <input type="text" id="communityInvolvement" name="communityInvolvement" placeholder="Are you involved in any community activities?">
+        <label for="overallSocial">Overall Social Connectedness: Scale of 1 to 10 </label>
+        <input type="text" id="overallSocial" name="overallSocial" placeholder="How satisfied are you with your overall social connectedness right now?">
        
         <!-- Environment -->
         <h3>Environment</h3>
@@ -214,6 +228,8 @@
         <h3>Spiritual Health</h3>
         <label for="spiritualPractices">Participation in religious or spiritual practices:</label>
         <input type="text" id="spiritualPractices" name="spiritualPractices" placeholder="Describe your religious or spiritual practices">
+        <label for="overallSpir">Overall Spiritual Health: Scale of 1 to 10 </label>
+        <input type="text" id="overallSpir" name="overallSpir" placeholder="How satisfied are you with your overall spiritual health right now?">
     
         <!-- Personal Growth -->
         <h3>Personal Growth</h3>
@@ -236,7 +252,7 @@
         <!-- Special Considerations -->
         <h3>Special Considerations</h3>
         <label for="lifeTransitions">Life Transitions:</label>
-        <input type="text" id="lifeTransitions" name="lifeTransitions" placeholder="Describe any relevant life transitions (pregnancy, menopause, aging)">
+        <input type="text" id="lifeTransitions" name="lifeTransitions" placeholder="e.g job changes, pregnancy, menopause, aging, hormonal changes, pension, divorce, trauma)">
         <label for="culturalReligious">Cultural and Religious Factors:</label>
         <input type="text" id="culturalReligious" name="culturalReligious" placeholder="Any cultural or religious factors affecting health?">
         <label for="financialStress">Financial Health:</label>
